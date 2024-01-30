@@ -47,7 +47,7 @@ def main():
                          fallback='synth:bg={}:noise=0.05'.format(cv.samples.findFile('./model_detect/lena.jpg')))
     test = FaceEval()
     test.update_face_data()
-
+    # 这里是识别的单张图片，如果需要添加其他图片就可以在对应文件夹里增加，然后修改一下路径就可以了
     img = cv.imread('pic/img.png')
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     gray = cv.equalizeHist(gray)
@@ -55,6 +55,7 @@ def main():
     rects = detect(gray, cascade)
     print(rects)
     vis = img.copy()
+    # 这里是人脸识别的入口文件，这个main函数是入口函数
     draw_rects(vis, rects, (0, 255, 0))
     for i, (x1, y1, x2, y2) in enumerate(rects):
         face_img = vis[y1:y2, x1:x2]
