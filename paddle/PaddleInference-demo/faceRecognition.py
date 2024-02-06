@@ -10,7 +10,7 @@ from utils.preprocess import resizeImg
 
 class FaceEval:
     def __init__(self):
-        self.threshold = 0.4
+        self.threshold = 0.8
         self.mtcnn = MTCNN()
         self.face_eval = self.init_resnet50_predictor('../output/Backbone_epoch99')
         self.face_db_path = '../FaceDatabase'
