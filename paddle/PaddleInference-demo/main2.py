@@ -64,7 +64,7 @@ def main():
             cv.imwrite(path, face_img)
             result = face_recognition_func(path)
             if result:
-                draw_str(vis, (left + text_width, top - text_height), f'{getName(result["user_id"])}-{result["score"]}' if result['score'] > 80 else 'unknown')
+                draw_str(vis, (left + text_width, top - text_height), f'{getName(result["user_id"])}' if result['score'] > 80 else 'unknown')
             draw_rects(vis, [(left, top, right, bottom)], (0, 255, 0))
         cv.imwrite(f'{imgName}.jpg', vis)
 
